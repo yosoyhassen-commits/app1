@@ -14,6 +14,10 @@ const ProductDetailsScreen = () => {
   const product = products[0];
   const { width } = useWindowDimensions();
 
+  const addToCart = () => {
+    console.warn('add to cart');
+  };
+
   return (
     <View style={styles.container}>
       <ScrollView>
@@ -24,7 +28,6 @@ const ProductDetailsScreen = () => {
           )}
           horizontal
           showsHorizontalScrollIndicator={false}
-          pagingEnabled
           keyExtractor={(item, index) => index.toString()}
         />
         <View style={{ padding: 20 }}>
@@ -34,8 +37,8 @@ const ProductDetailsScreen = () => {
         </View>
       </ScrollView>
 
-      <Pressable style={styles.button} onPress={() => alert('Ajouté au panier')}>
-        <Text style={styles.buttonText}>Ajouter au panier</Text>
+      <Pressable onPress={addToCart} style={styles.button}>
+        <Text style={styles.buttonText}>Add to cart</Text>
       </Pressable>
     </View>
   );
